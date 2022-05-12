@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return "Savi";
+Route::get('*', function () {
+    return abort(404);
 });
