@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/login', App\Http\Controllers\Authentication\loginController::class);
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::post('/logout', App\Http\Controllers\Authentication\LogoutController::class);
+    Route::get('/user', App\Http\Controllers\Authentication\AuthenticatedUserController::class);
 });
 
 
