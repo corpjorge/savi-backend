@@ -6,6 +6,7 @@ Route::post('/login', App\Http\Controllers\Authentication\loginController::class
 
 require_once 'administrators.php';
 require_once 'users.php';
+require_once 'category.php';
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/logout', App\Http\Controllers\Authentication\LogoutController::class);
