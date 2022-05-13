@@ -4,23 +4,20 @@ namespace App\Http\Controllers\Administrators;
 
 class SearchAdminController
 {
-    public function __invoke($admins = NULL): ?string
+    public function __invoke($admins = null)
     {
-        $admins = $this->querySearchAdmin();
+        $admins = $this->querySearchAdmin($admins);
         return $admins->toJson();
     }
 
-    public function querySearchAdmin($admins = NULL)
+    public function querySearchAdmin($admins)
     {
         return \App\Models\User::where('role_id','<=', 3)
             ->where(function($query) use ($admins) {
-                $query->orWhere('first_name', 'like', "%$admins%")
-                    ->orWhere('second_name', 'like', "%$admins%")
-                    ->orWhere('last_name', 'like', "%$admins%")
-                    ->orWhere('second_last_name', 'like', "%$admins%")
+                $query->orWhere('name', 'like', "%$admins%")
                     ->orWhere('email', 'like', "%$admins%")
                     ->orWhere('document', 'like', "%$admins%");
-            })->select(['id', 'first_name','last_name', 'document', 'email', 'deleted_at', 'first_name','last_name'])
+            })->select(['id', 'name', 'document', 'email', 'deleted_at'])
             ->paginate(10);
     }
 
