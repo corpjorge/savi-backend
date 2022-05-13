@@ -7,7 +7,7 @@ use Illuminate\Validation\Rule;
 
 class StoreAdminController
 {
-    public function __invoke(\Illuminate\Http\Request $request, User $admin)
+    public function __invoke(\Illuminate\Http\Request $request, User $admin): void
     {
         $request->validate($this->rules());
         $admin->create($request->all());

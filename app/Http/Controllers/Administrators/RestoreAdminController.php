@@ -6,7 +6,7 @@ use Illuminate\Validation\ValidationException;
 
 class RestoreAdminController
 {
-    public function __invoke(int $id)
+    public function __invoke(int $id): void
     {
         try {
             $admin = \App\Models\User::onlyTrashed()->findOrFail($id);
