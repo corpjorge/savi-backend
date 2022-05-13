@@ -6,7 +6,7 @@ use Illuminate\Validation\ValidationException;
 
 class DeleteAdminController
 {
-    public function __invoke($id)
+    public function __invoke(int $id)
     {
         try {
             $admin = \App\Models\User::findOrFail($id);

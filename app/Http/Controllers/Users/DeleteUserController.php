@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Users;
 
 class DeleteUserController
 {
-    public function __invoke($id)
+    public function __invoke(int $id)
     {
         $error = ['error' => ['user not found.']];
         try {
