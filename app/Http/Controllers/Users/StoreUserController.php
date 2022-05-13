@@ -7,7 +7,7 @@ use Illuminate\Validation\Rule;
 
 class StoreUserController
 {
-    public function __invoke(\Illuminate\Http\Request $request, User $user)
+    public function __invoke(\Illuminate\Http\Request $request, User $user): void
     {
         $request->validate($this->rules());
         $user->create($request->all());

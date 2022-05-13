@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Users;
 
 class RestoreUserController
 {
-    public function __invoke(int $id)
+    public function __invoke(int $id): void
     {
         $error = ['error' => ['user not found.']];
         try {

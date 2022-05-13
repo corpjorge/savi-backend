@@ -7,7 +7,7 @@ use Illuminate\Validation\Rule;
 
 class UpdateUserController
 {
-    public function __invoke(\Illuminate\Http\Request $request, User $user)
+    public function __invoke(\Illuminate\Http\Request $request, User $user): void
     {
         if ($user->role_id < 4) {
             throw \Illuminate\Validation\ValidationException::withMessages([
