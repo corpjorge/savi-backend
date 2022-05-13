@@ -6,8 +6,10 @@ class SearchUserController
 {
     public function __invoke($user = null)
     {
-        $user = $this->querySearchAdmin($user);
-        return $user->toJson();
+        if (strlen($user) >= 3) {
+            $user = $this->querySearchAdmin($user);
+            return $user->toJson();
+        }
     }
 
     public function querySearchAdmin($user)
