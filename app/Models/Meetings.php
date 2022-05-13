@@ -9,6 +9,12 @@ class Meetings extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'admin_id',
+        'service_id',
+        'date'
+    ];
+
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class);
