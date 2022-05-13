@@ -21,10 +21,9 @@ class CreateMeetingsTable extends Migration
                 $table->foreign('admin_id')->references('id')->on('users');
                 $table->foreignId('service_id')->constrained();
                 $table->dateTime('date');
+                $table->string('state');
                 $table->string('meeting')->nullable();
                 $table->string('score')->nullable();
-                $table->string('scoreTime')->nullable();
-                $table->string('scoreProfessionalism')->nullable();
                 $table->timestamps();
             });
     }

@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Role;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -24,11 +23,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'document',
         'name',
         'email',
+        'password',
         'phone',
         'office_id',
         'area',
-        'role_id',
-        'image'
+        'role_id'
     ];
 
     /**
@@ -50,7 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function role(): BelongsTo
+    public function role(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Role::class);
     }
@@ -70,27 +69,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->role_id <= 1;
     }
 
-    public function isAdviser(): bool
-    {
-        return $this->role_id <= 3;
-    }
-
     public function isCoordinator(): bool
     {
         return $this->role_id <= 2;
     }
 
-    public function meetings()
-    {
-        return $this->hasMany(Meetings::class, 'admin_id', 'id');
-    }
-
-    public function activeMeetings()
-    {
-        return $this->meetings()->where('status_id', 1)
-            ->orWhere('status_id', 3)
-            ->orWhere('status_id', 4);
-    }
 
 
 }

@@ -19,6 +19,7 @@ class CreateApplicationTable extends Migration
             $table->biginteger('admin_id')->unsigned()->nullable();
             $table->foreign('admin_id')->references('id')->on('users');
             $table->foreignId('service_id')->constrained();
+            $table->string('state');
             $table->text('observation')->nullable();
             $table->string('score')->nullable();
             $table->timestamps();

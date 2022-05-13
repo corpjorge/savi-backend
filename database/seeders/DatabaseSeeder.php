@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             OfficeSeeder::class,
             UserSeeder::class,
             CategorySeeder::class,
-            ConfigurationSeeder::class,
             ServiceSeeder::class,
         ]);
     }

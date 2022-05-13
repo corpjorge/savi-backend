@@ -19,7 +19,6 @@ class CreateServicesTable extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('minutes')->nullable();
-            $table->boolean('automatic')->default(false);
             $table->timestamps();
         });
     }
