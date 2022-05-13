@@ -17,6 +17,7 @@ class CreateOfficeAdviserTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->foreignId('office_id')->nullable()->constrained();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
