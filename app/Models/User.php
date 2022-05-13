@@ -22,19 +22,14 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'document',
-        'first_name',
-        'second_name',
-        'last_name',
-        'second_last_name',
+        'name',
         'email',
-        'password',
         'phone',
         'office_id',
         'area',
         'role_id',
         'image'
     ];
-    protected $appends = ['penalized', 'name'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -97,22 +92,5 @@ class User extends Authenticatable implements MustVerifyEmail
             ->orWhere('status_id', 4);
     }
 
-    public function penalties(): HasMany
-    {
-        return $this->hasMany(Penalty::class, 'user_id', 'id');
-    }
-
-    public function activePenalties()
-    {
-        return $this->penalties()->whereRelation('status', 'name', 'active');
-    }
-
-    public function getPenalizedAttribute()
-    {
-        if ($this->activePenalties()->count() > 0) {
-            return true;
-        }
-        return false;
-    }
 
 }

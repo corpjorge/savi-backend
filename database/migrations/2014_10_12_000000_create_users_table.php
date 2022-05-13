@@ -18,13 +18,10 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id')->constrained();
             $table->foreignId('office_id')->nullable()->constrained();
             $table->bigInteger('document')->unique()->nullable();
-            $table->string('first_name');
-            $table->string('second_name')->nullable();
-            $table->string('last_name');
-            $table->string('second_last_name')->nullable();
+            $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->bigInteger('phone')->nullable()->unique();
             $table->string('area')->nullable();
             $table->string('external')->nullable();
