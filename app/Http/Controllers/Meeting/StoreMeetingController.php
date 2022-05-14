@@ -72,19 +72,27 @@ class StoreMeetingController
 
     public function validateSunday($date): bool
     {
-        return Carbon::create($date)->isoFormat('E') == 7;
+        return $this->getCarbon($date)->isoFormat('E') == 7;
     }
 
     public function validateSaturday($date): bool
     {
-        $date = Carbon::create($date);
-        return $date->isoFormat('E') == 6 && $date->hour >= 12;
+        return $this->getCarbon($date)->isoFormat('E') == 6 && $this->getCarbon($date)->hour >= 12;
     }
 
     public function validateTime($date): bool
     {
-        $date = Carbon::create($date);
-        return $date->hour > 17 || $date->hour < 8;
+        return $this->getCarbon($date)->hour > 17 || $this->getCarbon($date)->hour < 8;
+    }
+
+    public function validateTimeAdviser($date)
+    {
+       // return $this->getCarbon($date)->hour > 17 || $this->getCarbon($date)->hour < 8;
+    }
+
+    public function getCarbon($date): Carbon|false
+    {
+        return Carbon::create($date);
     }
 
 
