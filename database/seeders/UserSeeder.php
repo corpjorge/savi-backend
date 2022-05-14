@@ -52,10 +52,11 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'id' => 4,
-            'role_id' => 4,
+            'role_id' => 3,
             'name' => 'Jorge Eduardo Peralta',
             'email' => 'corpjorge@gmail.com',
             'document' => '987654321',
+            'break_time' => '{"start_time": 12, "end_time": 1}',
             'office_id' => 2,
             'password' => Hash::make('admin'),
             'created_at' => now(),

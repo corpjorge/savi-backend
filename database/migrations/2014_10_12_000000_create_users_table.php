@@ -23,8 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->bigInteger('phone')->nullable()->unique();
-            $table->string('area')->nullable();
-            $table->string('external')->nullable();
+            $table->string('break_time')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

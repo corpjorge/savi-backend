@@ -26,7 +26,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'phone',
         'office_id',
-        'area',
         'role_id'
     ];
 
@@ -47,6 +46,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'break_time' => 'json',
     ];
 
     public function role(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -73,7 +73,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->role_id <= 2;
     }
-
 
 
 }
