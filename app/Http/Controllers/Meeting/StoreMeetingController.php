@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Meeting;
 
 use App\Models\Meetings;
-use Carbon\Carbon;
 use Illuminate\Validation\ValidationException;
 
 class StoreMeetingController
 {
+    use ValidateMeetings;
+
     public function __invoke(\Illuminate\Http\Request $request, Meetings $meeting)
     {
         $this->validations($request);
@@ -58,41 +59,12 @@ class StoreMeetingController
             ]);
         }
 
-    }
+        if ($this->validateTimeAdviser($request->date, $request->admin_id)) {
+            throw ValidationException::withMessages([
+                'error' => ['date already used.'],
+            ]);
+        }
 
-    public function activeMeetings()
-    {
-        return Meetings::where('user_id', auth()->id())->where('state', 'active')->exists();
-    }
-
-    public function validateDate($date): bool
-    {
-        return date("Y-m-d") > $date;
-    }
-
-    public function validateSunday($date): bool
-    {
-        return $this->getCarbon($date)->isoFormat('E') == 7;
-    }
-
-    public function validateSaturday($date): bool
-    {
-        return $this->getCarbon($date)->isoFormat('E') == 6 && $this->getCarbon($date)->hour >= 12;
-    }
-
-    public function validateTime($date): bool
-    {
-        return $this->getCarbon($date)->hour > 17 || $this->getCarbon($date)->hour < 8;
-    }
-
-    public function validateTimeAdviser($date)
-    {
-       // return $this->getCarbon($date)->hour > 17 || $this->getCarbon($date)->hour < 8;
-    }
-
-    public function getCarbon($date): Carbon|false
-    {
-        return Carbon::create($date);
     }
 
 
