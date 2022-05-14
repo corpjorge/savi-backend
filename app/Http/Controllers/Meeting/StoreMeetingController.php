@@ -65,6 +65,12 @@ class StoreMeetingController
             ]);
         }
 
+        if ($this->validateBreakTime($request->date, $request->admin_id)) {
+            throw ValidationException::withMessages([
+                'error' => ['hour not available.'],
+            ]);
+        }
+
     }
 
 
