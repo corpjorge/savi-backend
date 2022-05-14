@@ -37,7 +37,7 @@ trait ValidateMeetings
         return Meetings::where('admin_id', $adviser)->where('date', $this->getCarbon($date))->exists();
     }
 
-    public function breakTime($date)
+    public function validateBreakTime($date)
     {
         //
     }
