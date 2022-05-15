@@ -8,11 +8,7 @@ class UsersController
 {
     public function __invoke(User $user)
     {
-        return $user->where('role_id', 4)
-            ->withTrashed()
-            ->latest('updated_at')
-            ->select(['id','document', 'email', 'deleted_at', 'name'])
-            ->paginate(10);
+        return $user->where('role_id', 4)->withTrashed()->limit(10)->latest('updated_at')->get(['id', 'name', 'document', 'deleted_at']);
     }
 
 }
