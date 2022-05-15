@@ -20,7 +20,7 @@ class StoreMeetingController
         ]);
 
         $meeting->fill($request->all());
-        $meeting->user_id = auth()->user()->id;
+        $meeting->user_id = auth()->id();
         $meeting->state = 'active';
         $meeting->meeting = \Illuminate\Support\Str::random(7);
         $meeting->save();
