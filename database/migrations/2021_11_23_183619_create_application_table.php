@@ -22,6 +22,7 @@ class CreateApplicationTable extends Migration
             $table->string('state');
             $table->text('observation')->nullable();
             $table->string('score')->nullable();
+            $table->text('documents')->nullable();
             $table->timestamps();
         });
     }

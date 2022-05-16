@@ -13,10 +13,14 @@ class Application extends Model
 
     protected $fillable = [
         'user_id',
-        'admin_id',
         'service_id',
-        'state',
-        'observation'
+        'observation',
+        'admin_id',
+        'state'
+    ];
+
+    protected $casts = [
+        'documents' => 'array',
     ];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
