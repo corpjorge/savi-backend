@@ -9,4 +9,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::put('/admins/{admin}', App\Http\Controllers\Administrators\UpdateAdminController::class);
     Route::delete('/admins/{id}', App\Http\Controllers\Administrators\DeleteAdminController::class);
     Route::patch('/admins/{id}', App\Http\Controllers\Administrators\RestoreAdminController::class);
+    Route::post('/admins/photo/{admin}', App\Http\Controllers\Administrators\UploadPhotoAdminController::class);
 });

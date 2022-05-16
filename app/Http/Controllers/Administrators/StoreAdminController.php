@@ -30,9 +30,6 @@ class StoreAdminController
             'document' => [
                 'required', Rule::unique((new User)->getTable())->ignore(\Illuminate\Support\Facades\Route::current()->admin ?? null)
             ],
-            'image' => [
-                'string', 'nullable'
-            ],
         ];
     }
 
