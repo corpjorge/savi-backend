@@ -9,6 +9,7 @@ class AuthenticatedUserController
         return response()->json([
             'name' => auth()->user()->name,
             'email' => auth()->user()->email,
+            'type' => auth()->user()->role_id,
         ]);
     }
 }
