@@ -10,6 +10,7 @@ class AuthenticatedUserController
             'name' => auth()->user()->name,
             'email' => auth()->user()->email,
             'type' => auth()->user()->role_id,
+            'office' => auth()->user()->office_id,
         ]);
     }
 }
