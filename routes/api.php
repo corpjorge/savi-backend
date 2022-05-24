@@ -6,7 +6,6 @@ Route::post('/login', App\Http\Controllers\Authentication\loginController::class
 
 require_once 'administrators.php';
 require_once 'users.php';
-require_once 'category.php';
 require_once 'services.php';
 require_once 'offices.php';
 require_once 'meetings.php';
@@ -20,6 +19,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/email/verify/{id}/{hash}', function (\Illuminate\Foundation\Auth\EmailVerificationRequest $request) {
         $request->fulfill();
     })->middleware('signed')->name('verification.verify');
- 
+
 
 });
