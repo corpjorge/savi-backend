@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
             DepartmentsSeeder::class,
             CitySeeder::class,
             RoleSeeder::class,
-            OfficeSeeder::class,
             UserSeeder::class,
             ServiceSeeder::class,
         ]);

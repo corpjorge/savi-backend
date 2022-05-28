@@ -55,16 +55,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Role::class);
     }
 
-    public function office()
-    {
-        return $this->belongsTo(Office::class);
-    }
-
-    public function offices()
-    {
-        return $this->belongsToMany(Office::class, 'office_adviser');
-    }
-
     public function isAdmin(): bool
     {
         return $this->role_id <= 1;
