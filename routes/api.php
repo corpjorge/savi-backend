@@ -7,7 +7,6 @@ Route::post('/login', App\Http\Controllers\Authentication\loginController::class
 require_once 'administrators.php';
 require_once 'users.php';
 require_once 'services.php';
-require_once 'offices.php';
 require_once 'meetings.php';
 require_once 'application.php';
 
