@@ -32,7 +32,6 @@ class UserSeeder extends Seeder
             'name' => 'John Freddy Moreno',
             'email' => 'john.moreno@fyclsingenieria.com',
             'document' => '123456789',
-            'office_id' => 1,
             'password' => Hash::make('12342wefdgsasdf@'),
             'created_at' => now(),
             'updated_at' => now()
@@ -44,7 +43,6 @@ class UserSeeder extends Seeder
             'name' => 'Leandro moreno',
             'email' => '123857@gmail.com',
             'document' => '111111111',
-            'office_id' => 3,
             'password' => Hash::make('12342wefdgsasdf@'),
             'created_at' => now(),
             'updated_at' => now()
@@ -57,7 +55,6 @@ class UserSeeder extends Seeder
             'email' => 'corpjorge@gmail.com',
             'document' => '987654321',
             'break_time' => '{"start": 12, "end": 1}',
-            'office_id' => 2,
             'password' => Hash::make('admin'),
             'created_at' => now(),
             'updated_at' => now()
