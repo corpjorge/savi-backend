@@ -40,6 +40,9 @@ trait ValidateMeetings
     public function validateBreakTime($date, $id)
     {
         $user = \App\Models\User::find($id);
+        if ($user->break_time == null) {
+            return true;
+        }
         foreach ($user->break_time as $break_time) {
             if ($this->getCarbon($date)->hour == $break_time) {
                 return true;

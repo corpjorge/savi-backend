@@ -11,7 +11,6 @@ class StoreMeetingController
 
     public function __invoke(\Illuminate\Http\Request $request, Meetings $meeting)
     {
-        $this->validations($request);
 
         $request->validate([
             'admin_id' => 'required|exists:users,id',
@@ -19,11 +18,13 @@ class StoreMeetingController
             'date' => 'required|date'
         ]);
 
+        $this->validations($request);
+
         $meeting->fill($request->all());
         $meeting->user_id = auth()->id();
         $meeting->state = 'active';
         $meeting->meeting = \Illuminate\Support\Str::random(7);
-        $meeting->save();
+//        $meeting->save();
 
     }
 
