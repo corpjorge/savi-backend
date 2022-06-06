@@ -29,7 +29,7 @@ trait ValidateMeetings
 
     public function validateTime($date): bool
     {
-        return $this->getCarbon($date)->hour > 17 || $this->getCarbon($date)->hour < 8;
+        return $this->getCarbon($date)->hour > 14 || $this->getCarbon($date)->hour < 8;
     }
 
     public function validateTimeAdviser($date, $adviser)
