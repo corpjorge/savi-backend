@@ -54,7 +54,7 @@ class UserSeeder extends Seeder
             'name' => 'Jorge Eduardo Peralta',
             'email' => 'corpjorge@gmail.com',
             'document' => '987654321',
-            'break_time' => '{"start": 12, "end": 1}',
+            'break_time' => '{"start": 12, "end": 13}',
             'password' => Hash::make('admin'),
             'created_at' => now(),
             'updated_at' => now()

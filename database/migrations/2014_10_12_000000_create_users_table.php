@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('phone')->nullable()->unique();
             $table->string('break_time')->nullable();
             $table->string('photo')->nullable();
+            $table->boolean('isActive')->default(true);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
