@@ -49,13 +49,13 @@ class StoreMeetingController
 
         if ($this->validateSaturday($request->date)) {
             throw ValidationException::withMessages([
-                'error' => ['The time is not available.'],
+                'error' => ['The time is not available. 1'],
             ]);
         }
 
         if ($this->validateTime($request->date)) {
             throw ValidationException::withMessages([
-                'error' => ['The time is not available.'],
+                'error' => ['The time is not available. 2'],
             ]);
         }
 

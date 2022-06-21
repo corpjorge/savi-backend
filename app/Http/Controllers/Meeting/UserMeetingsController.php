@@ -6,7 +6,8 @@ class UserMeetingsController
 {
     public function __invoke()
     {
-        return \App\Models\Meetings::where('user_id', auth()->id())->where('state', 'active')->first()->load('user', 'admin', 'service');
+        $meeting = \App\Models\Meetings::where('user_id', auth()->id())->where('state', 'active')->first();
+        return $meeting ? $meeting->load('user', 'admin') : null;
     }
 
 }
