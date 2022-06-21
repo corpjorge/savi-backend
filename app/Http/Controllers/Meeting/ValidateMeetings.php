@@ -41,7 +41,8 @@ trait ValidateMeetings
     {
         $user = \App\Models\User::find($id);
         if ($user->break_time == null) {
-            return true;
+            // TODO: Add a message to the exception
+            return false;
         }
         foreach ($user->break_time as $break_time) {
             if ($this->getCarbon($date)->hour == $break_time) {

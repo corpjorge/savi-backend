@@ -14,7 +14,6 @@ class StoreMeetingController
 
         $request->validate([
             'admin_id' => 'required|exists:users,id',
-            'service_id' => 'required|exists:services,id',
             'date' => 'required|date'
         ]);
 

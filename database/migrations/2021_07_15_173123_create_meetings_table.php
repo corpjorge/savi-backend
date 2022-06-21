@@ -19,7 +19,7 @@ class CreateMeetingsTable extends Migration
                 $table->foreignId('user_id')->constrained();
                 $table->biginteger('admin_id')->unsigned()->nullable();
                 $table->foreign('admin_id')->references('id')->on('users');
-                $table->foreignId('service_id')->constrained();
+                $table->foreignId('service_id')->nullable()->constrained();
                 $table->dateTime('date');
                 $table->string('state');
                 $table->string('meeting')->nullable();
