@@ -9,6 +9,7 @@ require_once 'users.php';
 require_once 'services.php';
 require_once 'meetings.php';
 require_once 'application.php';
+require_once 'dolby.php';
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/logout', App\Http\Controllers\Authentication\LogoutController::class);
