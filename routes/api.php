@@ -19,6 +19,4 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/email/verify/{id}/{hash}', function (\Illuminate\Foundation\Auth\EmailVerificationRequest $request) {
         $request->fulfill();
     })->middleware('signed')->name('verification.verify');
-
-
 });

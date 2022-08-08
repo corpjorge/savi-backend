@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\dolby;
+namespace App\Http\Controllers\Dolby;
 
 class TokenController
 {
