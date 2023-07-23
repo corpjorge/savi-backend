@@ -56,6 +56,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'frontend' => env('APP_URL_FRONTEND', 'https://savi3.savinteractivo.com'),
+
     'asset_url' => env('ASSET_URL'),
 
     /*
