@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::post('/login', App\Http\Controllers\Authentication\loginController::class);
+Route::post('/login', App\Http\Controllers\Authentication\LoginController::class);
 
 require_once 'administrators.php';
 require_once 'users.php';
