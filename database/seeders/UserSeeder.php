@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'id' => 1,
-            'role_id' => 1,
+            'role_id' => 3,
             'name' => 'Jorge Eduardo',
             'email' => 'corpjorge@hotmail.com',
             'password' => Hash::make('admin'),
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'id' => 2,
-            'role_id' => 1,
+            'role_id' => 4,
             'name' => 'John Freddy Moreno',
             'email' => 'john.moreno@fyclsingenieria.com',
             'document' => '123456789',
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'id' => 4,
             'role_id' => 3,
-            'name' => 'Jorge Eduardo Peralta',
+            'name' => 'Peralta Guzman',
             'email' => 'corpjorge@gmail.com',
             'document' => '987654321',
             'break_time' => '{"start": 12, "end": 13}',
@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
             'updated_at' => now()
         ]);
 
-        \App\Models\User::factory()->count(20)->create();
+//        \App\Models\User::factory()->count(20)->create();
 
     }
 }
