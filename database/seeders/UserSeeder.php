@@ -32,18 +32,7 @@ class UserSeeder extends Seeder
             'name' => 'John Freddy Moreno',
             'email' => 'john.moreno@fyclsingenieria.com',
             'document' => '123456789',
-            'password' => Hash::make('12342wefdgsasdf@'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        DB::table('users')->insert([
-            'id' => 3,
-            'role_id' => 1,
-            'name' => 'Leandro moreno',
-            'email' => '123857@gmail.com',
-            'document' => '111111111',
-            'password' => Hash::make('12342wefdgsasdf@'),
+            'password' => Hash::make('admin'),
             'created_at' => now(),
             'updated_at' => now()
         ]);
